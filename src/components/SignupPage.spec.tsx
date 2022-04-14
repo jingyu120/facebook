@@ -1,5 +1,5 @@
 import SignupPage from "./SignupPage";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 
 describe("Sign up page", () => {
   describe("Layout", () => {
@@ -34,6 +34,25 @@ describe("Sign up page", () => {
       render(<SignupPage />);
       const signupButton = screen.queryByRole("button", { name: "Sign Up" });
       expect(signupButton).toBeInTheDocument();
+      expect(signupButton).toBeDisabled();
+    });
+  });
+
+  describe("Interactions", () => {
+    it("enables signup button when all fields are filled out", () => {
+      render(<SignupPage />);
+      const username = screen.queryByPlaceholderText(
+        "Username"
+      ) as HTMLInputElement;
+      const email = screen.queryByPlaceholderText("Email") as HTMLInputElement;
+      const password = screen.queryByPlaceholderText(
+        "Password"
+      ) as HTMLInputElement;
+      fireEvent.change(username, { target: { value: "jingyu120" } });
+      fireEvent.change(email, { target: { value: "jingyu120@gmail.com" } });
+      fireEvent.change(password, { target: { value: "jingyu120" } });
+      const button = screen.queryByRole("button", { name: "Sign Up" });
+      expect(button).toBeEnabled();
     });
   });
 });
