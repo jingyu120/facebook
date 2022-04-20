@@ -7,6 +7,10 @@ describe("Sign up page", () => {
       render(<SignupPage />);
       const header = screen.queryByRole("heading", { name: "Sign Up" });
       expect(header).toBeInTheDocument();
+      const subheader = screen.queryByRole("heading", {
+        name: "It's quick and easy.",
+      });
+      expect(subheader).toBeInTheDocument();
     });
 
     it("has first name input", () => {
