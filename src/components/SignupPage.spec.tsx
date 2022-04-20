@@ -9,9 +9,15 @@ describe("Sign up page", () => {
       expect(header).toBeInTheDocument();
     });
 
-    it("has username input", () => {
+    it("has first name input", () => {
       render(<SignupPage />);
-      const input = screen.getByPlaceholderText("Username");
+      const input = screen.getByPlaceholderText("First name");
+      expect(input).toBeInTheDocument();
+    });
+
+    it("has last name input", () => {
+      render(<SignupPage />);
+      const input = screen.getByPlaceholderText("Last name");
       expect(input).toBeInTheDocument();
     });
 
@@ -24,7 +30,7 @@ describe("Sign up page", () => {
     it("has password input", () => {
       render(<SignupPage />);
       const password = screen.getByPlaceholderText(
-        "Password"
+        "New Password"
       ) as HTMLInputElement;
       expect(password).toBeInTheDocument();
       expect(password.type).toBe("password");
@@ -34,25 +40,28 @@ describe("Sign up page", () => {
       render(<SignupPage />);
       const signupButton = screen.queryByRole("button", { name: "Sign Up" });
       expect(signupButton).toBeInTheDocument();
-      expect(signupButton).toBeDisabled();
+    });
+
+    it("has month selector", () => {
+      render(<SignupPage />);
     });
   });
 
   describe("Interactions", () => {
-    it("enables signup button when all fields are filled out", () => {
-      render(<SignupPage />);
-      const username = screen.queryByPlaceholderText(
-        "Username"
-      ) as HTMLInputElement;
-      const email = screen.queryByPlaceholderText("Email") as HTMLInputElement;
-      const password = screen.queryByPlaceholderText(
-        "Password"
-      ) as HTMLInputElement;
-      fireEvent.change(username, { target: { value: "jingyu120" } });
-      fireEvent.change(email, { target: { value: "jingyu120@gmail.com" } });
-      fireEvent.change(password, { target: { value: "jingyu120" } });
-      const button = screen.queryByRole("button", { name: "Sign Up" });
-      expect(button).toBeEnabled();
-    });
+    //   it("enables signup button when all fields are filled out", () => {
+    //     render(<SignupPage />);
+    //     const username = screen.queryByPlaceholderText(
+    //       "Username"
+    //     ) as HTMLInputElement;
+    //     const email = screen.queryByPlaceholderText("Email") as HTMLInputElement;
+    //     const password = screen.queryByPlaceholderText(
+    //       "Password"
+    //     ) as HTMLInputElement;
+    //     fireEvent.change(username, { target: { value: "jingyu120" } });
+    //     fireEvent.change(email, { target: { value: "jingyu120@gmail.com" } });
+    //     fireEvent.change(password, { target: { value: "jingyu120" } });
+    //     const button = screen.queryByRole("button", { name: "Sign Up" });
+    //     expect(button).toBeEnabled();
+    //   });
   });
 });
