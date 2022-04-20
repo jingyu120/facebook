@@ -42,8 +42,17 @@ describe("Sign up page", () => {
       expect(signupButton).toBeInTheDocument();
     });
 
-    it("has month selector", () => {
+    it("has gender radio buttons and initially unchecked", () => {
       render(<SignupPage />);
+      const maleRadio = screen.getByLabelText("Male");
+      expect(maleRadio).toBeInTheDocument();
+      expect(maleRadio).not.toBeChecked();
+      const femaleRadio = screen.getByLabelText("Female");
+      expect(femaleRadio).toBeInTheDocument();
+      expect(femaleRadio).not.toBeChecked();
+      const customRadio = screen.getByLabelText("Custom");
+      expect(customRadio).toBeInTheDocument();
+      expect(customRadio).not.toBeChecked();
     });
   });
 
