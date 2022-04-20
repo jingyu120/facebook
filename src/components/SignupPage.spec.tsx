@@ -57,6 +57,24 @@ describe("Sign up page", () => {
   });
 
   describe("Interactions", () => {
+    it("checks radio button when clicked and other radio button becomes unchecked", () => {
+      render(<SignupPage />);
+      const maleRadio = screen.getByLabelText("Male");
+      expect(maleRadio).not.toBeChecked();
+      fireEvent.click(maleRadio);
+      expect(maleRadio).toBeChecked();
+      const femaleRadio = screen.getByLabelText("Female");
+      expect(femaleRadio).not.toBeChecked();
+      fireEvent.click(femaleRadio);
+      expect(femaleRadio).toBeChecked();
+      expect(maleRadio).not.toBeChecked();
+      const customRadio = screen.getByLabelText("Custom");
+      expect(customRadio).not.toBeChecked();
+      fireEvent.click(customRadio);
+      expect(customRadio).toBeChecked();
+      expect(femaleRadio).not.toBeChecked();
+      expect(maleRadio).not.toBeChecked();
+    });
     //   it("enables signup button when all fields are filled out", () => {
     //     render(<SignupPage />);
     //     const username = screen.queryByPlaceholderText(
