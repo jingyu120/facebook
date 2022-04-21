@@ -24,7 +24,7 @@ function SignupPage({}: Props) {
   // };
 
   return (
-    <div className="bg-gray-100 flex h-screen">
+    <div className="bg-gray-500 flex h-screen w-full absolute top-0 bg-opacity-5">
       <div className="bg-white w-[432px] h-[496px] m-auto p-3 rounded-md shadow-md flex flex-col justify-between">
         <div className="">
           <h1 className="text-2xl font-bold">Sign Up</h1>
