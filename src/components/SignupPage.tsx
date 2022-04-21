@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { XIcon } from "@heroicons/react/solid";
 
-type Props = {};
+type Props = {
+  setModal: (value: boolean) => void;
+};
 // eslint-disable-next-line
-function SignupPage({}: Props) {
+function SignupPage({ setModal }: Props) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -26,9 +29,20 @@ function SignupPage({}: Props) {
   return (
     <div className="bg-gray-500 flex h-screen w-full absolute top-0 bg-opacity-40">
       <div className="bg-white w-[432px] h-[496px] m-auto p-3 rounded-md shadow-md flex flex-col justify-between">
-        <div className="">
-          <h1 className="text-2xl font-bold">Sign Up</h1>
-          <h5>It's quick and easy.</h5>
+        <div className="flex justify-between">
+          <div>
+            <h1 className="text-2xl font-bold">Sign Up</h1>
+            <h5>It's quick and easy.</h5>
+          </div>
+          <div>
+            <button
+              className="w-6"
+              aria-label="close"
+              onClick={() => setModal(false)}
+            >
+              <XIcon />
+            </button>
+          </div>
         </div>
 
         <hr />

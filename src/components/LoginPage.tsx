@@ -1,10 +1,14 @@
 import React from "react";
+import SignupPage from "./SignupPage";
 
 type Props = {};
 
 function LoginPage({}: Props) {
+  const [openRegisterModal, setOpenRegisterModal] = React.useState(false);
+
   return (
     <div className="flex h-screen items-center justify-around bg-slate-200">
+      {openRegisterModal && <SignupPage setModal={setOpenRegisterModal} />}
       <div className="w-1/4">
         <h1 className="text-blue-500 font-bold text-[45px]">facebook</h1>
         <h2 className="font-semibold">
@@ -29,7 +33,10 @@ function LoginPage({}: Props) {
           </a>
         </div>
         <hr />
-        <button className="bg-green-500 w-3/5 h-10 rounded-lg my-auto text-white font-semibold mx-auto">
+        <button
+          onClick={() => setOpenRegisterModal(!openRegisterModal)}
+          className="bg-green-500 w-3/5 h-10 rounded-lg my-auto text-white font-semibold mx-auto"
+        >
           Create new account
         </button>
       </div>

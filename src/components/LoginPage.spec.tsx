@@ -1,5 +1,5 @@
+import { XIcon } from "@heroicons/react/solid";
 import { fireEvent, render, screen } from "@testing-library/react";
-import { serialize } from "v8";
 import LoginPage from "./LoginPage";
 
 describe("Login Page", () => {
@@ -46,6 +46,31 @@ describe("Login Page", () => {
         name: /connect with friends/i,
       });
       expect(subHeader).toBeInTheDocument();
+    });
+  });
+
+  describe("Interactions", () => {
+    it("opens registration modal when create new account is clicked", () => {
+      render(<LoginPage />);
+      const registerButton = screen.getByRole("button", {
+        name: "Create new account",
+      });
+      fireEvent.click(registerButton);
+      const signupButton = screen.getByRole("button", { name: "Sign Up" });
+      expect(signupButton).toBeInTheDocument();
+    });
+
+    it("closes registration modal when X button is clicked", () => {
+      render(<LoginPage />);
+      const registerButton = screen.getByRole("button", {
+        name: "Create new account",
+      });
+      fireEvent.click(registerButton);
+      const signupButton = screen.getByRole("button", { name: "Sign Up" });
+      expect(signupButton).toBeInTheDocument();
+      const closeButton = screen.getByRole("button", { name: /close/i });
+      fireEvent.click(closeButton);
+      expect(signupButton).not.toBeInTheDocument();
     });
   });
 });
