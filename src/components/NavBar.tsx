@@ -15,7 +15,7 @@ function NavBar({}: Props) {
       <div>
         {/*left*/}
         <img
-          aria-aria-label=""
+          aria-label="fb-logo"
           className="w-10"
           alt="fb logo"
           src="https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Facebook_f_logo_%282021%29.svg/2048px-Facebook_f_logo_%282021%29.svg.png"
@@ -39,7 +39,17 @@ function NavBar({}: Props) {
           <PuzzleIcon />
         </button>
       </div>
-      <div>{/*right*/}</div>
+      <div>
+        {/*right*/}
+        <button>
+          <img
+            className="w-10 rounded-full"
+            src="https://scontent-ort2-2.xx.fbcdn.net/v/t1.6435-9/92690763_10158917196618274_8488492201817407488_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=PDik7fYKiFEAX-cXsYp&_nc_ht=scontent-ort2-2.xx&oh=00_AT8nZ2l0v2cDtby3e3sq-oygsbk2Ocr1JREsW3E3YKEzLw&oe=62879F37"
+            alt="profile-pic"
+          />
+          Justin
+        </button>
+      </div>
     </div>
   );
 }
