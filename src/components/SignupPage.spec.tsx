@@ -40,6 +40,12 @@ describe("Sign up page", () => {
       expect(password.type).toBe("password");
     });
 
+    it("has footer", () => {
+      render(<SignupPage />);
+      const footer = screen.getByText(/By clicking Sign Up/);
+      expect(footer).toBeInTheDocument();
+    });
+
     it("has sign up button", () => {
       render(<SignupPage />);
       const signupButton = screen.queryByRole("button", { name: "Sign Up" });
