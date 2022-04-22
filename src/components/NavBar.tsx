@@ -5,6 +5,10 @@ import {
   ShoppingBagIcon,
   UserGroupIcon,
   PuzzleIcon,
+  ViewGridIcon,
+  ChatAltIcon,
+  BellIcon,
+  UserCircleIcon,
 } from "@heroicons/react/solid";
 
 type Props = {};
@@ -48,6 +52,18 @@ function NavBar({}: Props) {
             alt="profile-pic"
           />
           Justin
+        </button>
+        <button className="w-10" aria-label="menu-icon">
+          <ViewGridIcon />
+        </button>
+        <button className="w-10" aria-label="messenger-icon">
+          <ChatAltIcon />
+        </button>
+        <button className="w-10" aria-label="notification-icon">
+          <BellIcon />
+        </button>
+        <button className="w-10" aria-label="account-icon">
+          <UserCircleIcon />
         </button>
       </div>
     </div>

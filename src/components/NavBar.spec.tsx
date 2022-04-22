@@ -44,5 +44,27 @@ describe("Navigation bar", () => {
       const profileButton = screen.getByRole("button", { name: /Justin/ });
       expect(profileButton).toBeInTheDocument();
     });
+
+    it("has menu icon", () => {
+      const menuIcon = screen.getByRole("button", { name: "menu-icon" });
+      expect(menuIcon).toBeInTheDocument();
+    });
+
+    it("has messenger icon", () => {
+      const messengerIcon = screen.getByRole("button", {
+        name: "messenger-icon",
+      });
+      expect(messengerIcon).toBeInTheDocument();
+    });
+    it("has notification icon", () => {
+      const notificationIcon = screen.getByRole("button", {
+        name: "notification-icon",
+      });
+      expect(notificationIcon).toBeInTheDocument();
+    });
+    it("has account icon", () => {
+      const accountIcon = screen.getByRole("button", { name: "account-icon" });
+      expect(accountIcon).toBeInTheDocument();
+    });
   });
 });
