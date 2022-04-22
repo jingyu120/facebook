@@ -9,6 +9,7 @@ import {
   ChatAltIcon,
   BellIcon,
   UserCircleIcon,
+  SearchIcon,
 } from "@heroicons/react/solid";
 
 type Props = {};
@@ -24,6 +25,12 @@ function NavBar({}: Props) {
           alt="fb logo"
           src="https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Facebook_f_logo_%282021%29.svg/2048px-Facebook_f_logo_%282021%29.svg.png"
         />
+        <div className="flex border rounded-lg w-[200px]">
+          <span title="search">
+            <SearchIcon className="w-6" />
+          </span>
+          <input placeholder="Search Facebook" />
+        </div>
       </div>
       <div>
         {/*middle*/}

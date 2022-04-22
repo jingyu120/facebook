@@ -66,5 +66,12 @@ describe("Navigation bar", () => {
       const accountIcon = screen.getByRole("button", { name: "account-icon" });
       expect(accountIcon).toBeInTheDocument();
     });
+
+    it("has search field with a search icon", () => {
+      const searchicon = screen.getByTitle("search");
+      expect(searchicon).toBeInTheDocument();
+      const searchField = screen.getByPlaceholderText("Search Facebook");
+      expect(searchField).toBeInTheDocument();
+    });
   });
 });
