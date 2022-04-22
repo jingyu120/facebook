@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import LoginPage from "./LoginPage";
+import LoginPage from "../LoginPage";
 
 describe("Login Page", () => {
   describe("Layout", () => {

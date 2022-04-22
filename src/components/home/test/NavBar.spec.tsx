@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import NavBar from "./NavBar";
+import NavBar from "../NavBar";
 
 describe("Navigation bar", () => {
   describe("Layout", () => {
@@ -7,12 +7,11 @@ describe("Navigation bar", () => {
       render(<NavBar />);
     });
     it("has fb logo", () => {
-      const fbIcon = screen.getByRole("img", { name: "fb-logo" });
+      const fbIcon = screen.getByAltText("fb logo");
       expect(fbIcon).toHaveAttribute(
         "src",
         "https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Facebook_f_logo_%282021%29.svg/2048px-Facebook_f_logo_%282021%29.svg.png"
       );
-      expect(fbIcon).toHaveAttribute("alt", "fb logo");
     });
 
     it("has home icon", () => {

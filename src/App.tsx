@@ -1,7 +1,7 @@
 import React from "react";
-import HomePage from "./components/HomePage";
-import LoginPage from "./components/LoginPage";
-import SignupPage from "./components/SignupPage";
+import HomePage from "./components/home/HomePage";
+import LoginPage from "./components/auth/LoginPage";
+import SignupPage from "./components/auth/SignupPage";
 
 function App() {
   return (
