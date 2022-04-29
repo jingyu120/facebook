@@ -2,33 +2,42 @@ import React, { useState } from "react";
 import { XIcon } from "@heroicons/react/solid";
 
 type Props = {
-  setModal: (value: boolean) => void;
+  closeModal: () => void;
+  modal: boolean;
 };
+
 // eslint-disable-next-line
-function SignupPage({ setModal }: Props) {
+function SignupPage({ closeModal, modal }: Props) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [selectedGender, setSelectedGender] = useState("");
 
+  const modalRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const checkIfClickOutide = (event: MouseEvent) => {
+      if (modal && !modalRef?.current?.contains(event.target as Node)) {
+        closeModal();
+      }
+    };
+
+    window.addEventListener("mousedown", checkIfClickOutide);
+
+    return () => {
+      window.removeEventListener("mousedown", checkIfClickOutide);
+    };
+  }, [modal, closeModal]);
+
   const isGenderSelected = (value: string): boolean => selectedGender === value;
-  // const monthList = () => {
-  //   const months = ["Jan", "Feb", "Mar"];
-  //   return months.map((m) => {
-  //     return <option value={m}>{m}</option>;
-  //   });
-  // };
-  // const dayList = () => {
-  //   const months = ["Jan", "Feb", "Mar"];
-  //   return months.map((m) => {
-  //     return <option value={m}>{m}</option>;
-  //   });
-  // };
 
   return (
     <div className="bg-gray-500 flex h-screen w-full absolute top-0 bg-opacity-40">
-      <div className="bg-white w-[432px] h-[496px] m-auto p-3 rounded-md shadow-md flex flex-col justify-between">
+      <div
+        ref={modalRef}
+        className="bg-white w-[432px] h-[496px] m-auto p-3 rounded-md shadow-md flex flex-col justify-between"
+      >
         <div className="flex justify-between">
           <div>
             <h1 className="text-2xl font-bold">Sign Up</h1>
@@ -38,7 +47,7 @@ function SignupPage({ setModal }: Props) {
             <button
               className="w-6"
               aria-label="close"
-              onClick={() => setModal(false)}
+              onClick={() => closeModal()}
             >
               <XIcon />
             </button>

@@ -6,8 +6,8 @@ import SignupPage from "./components/auth/SignupPage";
 function App() {
   return (
     <div className="App">
-      {/* <LoginPage /> */}
-      <HomePage />
+      <LoginPage />
+      {/* <HomePage /> */}
     </div>
   );
 }

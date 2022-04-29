@@ -4,7 +4,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 describe("Sign up page", () => {
   describe("Layout", () => {
     it("has header", () => {
-      render(<SignupPage setModal={jest.fn()} />);
+      render(<SignupPage closeModal={jest.fn()} modal={true} />);
       const header = screen.queryByRole("heading", { name: "Sign Up" });
       expect(header).toBeInTheDocument();
       const subheader = screen.queryByRole("heading", {
@@ -14,25 +14,25 @@ describe("Sign up page", () => {
     });
 
     it("has first name input", () => {
-      render(<SignupPage setModal={jest.fn()} />);
+      render(<SignupPage closeModal={jest.fn()} modal={true} />);
       const input = screen.getByPlaceholderText("First name");
       expect(input).toBeInTheDocument();
     });
 
     it("has last name input", () => {
-      render(<SignupPage setModal={jest.fn()} />);
+      render(<SignupPage closeModal={jest.fn()} modal={true} />);
       const input = screen.getByPlaceholderText("Last name");
       expect(input).toBeInTheDocument();
     });
 
     it("has email input", () => {
-      render(<SignupPage setModal={jest.fn()} />);
+      render(<SignupPage closeModal={jest.fn()} modal={true} />);
       const email = screen.getByPlaceholderText("Email");
       expect(email).toBeInTheDocument();
     });
 
     it("has password input", () => {
-      render(<SignupPage setModal={jest.fn()} />);
+      render(<SignupPage closeModal={jest.fn()} modal={true} />);
       const password = screen.getByPlaceholderText(
         "New Password"
       ) as HTMLInputElement;
@@ -41,19 +41,19 @@ describe("Sign up page", () => {
     });
 
     it("has footer", () => {
-      render(<SignupPage setModal={jest.fn()} />);
+      render(<SignupPage closeModal={jest.fn()} modal={true} />);
       const footer = screen.getByText(/By clicking Sign Up/);
       expect(footer).toBeInTheDocument();
     });
 
     it("has sign up button", () => {
-      render(<SignupPage setModal={jest.fn()} />);
+      render(<SignupPage closeModal={jest.fn()} modal={true} />);
       const signupButton = screen.queryByRole("button", { name: "Sign Up" });
       expect(signupButton).toBeInTheDocument();
     });
 
     it("has gender radio buttons and initially unchecked", () => {
-      render(<SignupPage setModal={jest.fn()} />);
+      render(<SignupPage closeModal={jest.fn()} modal={true} />);
       const maleRadio = screen.getByLabelText("Male");
       expect(maleRadio).toBeInTheDocument();
       expect(maleRadio).not.toBeChecked();
@@ -68,7 +68,7 @@ describe("Sign up page", () => {
 
   describe("Interactions", () => {
     it("checks radio button when clicked and other radio button becomes unchecked", () => {
-      render(<SignupPage setModal={jest.fn()} />);
+      render(<SignupPage closeModal={jest.fn()} modal={true} />);
       const maleRadio = screen.getByLabelText("Male");
       expect(maleRadio).not.toBeChecked();
       fireEvent.click(maleRadio);

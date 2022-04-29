@@ -8,7 +8,14 @@ function LoginPage({}: Props) {
 
   return (
     <div className="flex h-screen items-center justify-around bg-slate-200">
-      {openRegisterModal && <SignupPage setModal={setOpenRegisterModal} />}
+      {openRegisterModal && (
+        <SignupPage
+          closeModal={() => {
+            setOpenRegisterModal(false);
+          }}
+          modal={openRegisterModal}
+        />
+      )}
       <div className="w-1/4">
         <h1 className="text-blue-500 font-bold text-[45px]">facebook</h1>
         <h2 className="font-semibold">
